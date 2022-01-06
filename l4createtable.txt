@@ -1,0 +1,195 @@
+=>CREATE TABLE
+
+*SERVER LOGIN
+*DATABASE SERVER LOGIN
+*CHOOSE DATABASE (DATABASE CHECK)
+
+
+=>CHECK TABLE
+SHOW TABLES;
+
+
+=>CREATE TABLE = Syntax
+CREATE TABLE table_names(
+	column1 datatype,
+	column2 datatype,
+	column3 datatype,
+	.............
+);
+
+CREATE TABLE persons(
+	personid 	int,
+	firstname 	varchar(255),
+	lastname 	varchar(255),
+	city 		varchar(255),
+	address 	varchar(255)
+);
+
+SHOW TABLES;
+
+
+=>TABLE INFO (Describe)
+Method 1
+DESCRIBE persons;
+DESC persons;
+
+Method 2
+SHOW COLUMNS FROM persons;
+
+*Check table from current db to another db
+SHOW COLUMNS FROM wdf2001.persons;
+SHOW COLUMNS FROM persons IN wdf2001;
+
+____________________________________________________
+
+CREATE TABLE countries(
+	countryid 		int,
+	countryname 	varchar(255),
+	capitalname 	varchar(255),
+	currency 		varchar(255)
+);
+
+
+
+=>DELETE TEBLE = Syntax
+Method 1 = Single DROP
+DROP TABLE tablename;
+Method 2 = Multi DROP
+DROP TABLE tablename1,tablename2,tablename3,...;
+
+DROP TABLE countries;
+DROP TABLE IF EXISTS countries;
+
+*Drop table from current db to another db
+DROP TABLE IF EXISTS wdf2001.countries;
+
+=>NO OPTION
+CREATE TABLE countries(
+	countryid 		int NOT NULL,
+	countryname 	varchar(255) NOT NULL,
+	capitalname 	varchar(255),
+	currency 		varchar(255)
+);
+
+SHOW TABLES;
+
+DESC countries;
+
+___________________________________________
+
+=Exercise
+
+CREATE TABLE abc(
+name VARCHAR(10)
+);
+
+CREATE TABLE IF NOT EXISTS abc(
+name VARCHAR(10)
+);
+
+CREATE TABLE IF NOT EXISTS efg(
+name VARCHAR(10)
+);
+
+DROP TABLE IF EXISTS abc,efg;
+
+=>TURNCATE
+
+CREATE TABLE IF NOT EXISTS monitors(
+id INT NOT NULL AUTO_INCREMENT,
+brand VARCHAR(100),
+price DECIMAL(8,2),
+PRIMARY KEY(id)
+);
+
+DESC monitors;
+
+SHOW TABLES;
+
+INSERT INTO monitors(brand,price)
+VALUES ('asus',400000),
+('acer',500000),
+('aoc',600000),
+('dell',700000);
+
+SELECT * FROM monitors;
+
+DROP TABLE IF EXISTS monitors;
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+CREATE TABLE IF NOT EXISTS monitors(
+id INT NOT NULL AUTO_INCREMENT,
+brand VARCHAR(100),
+price DECIMAL(8,2),
+PRIMARY KEY(id)
+);
+
+DESC monitors;
+
+SHOW TABLES;
+
+INSERT INTO monitors(brand,price)
+VALUES ('asus',400000),
+('acer',500000),
+('aoc',600000),
+('dell',700000);
+
+SELECT * FROM monitors;
+
+DELETE FROM monitors;
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+CREATE TABLE IF NOT EXISTS monitors(
+id INT NOT NULL AUTO_INCREMENT,
+brand VARCHAR(100),
+price DECIMAL(8,2),
+PRIMARY KEY(id)
+);
+
+DESC monitors;
+
+SHOW TABLES;
+
+INSERT INTO monitors(brand,price)
+VALUES ('asus',400000),
+('acer',500000),
+('aoc',600000),
+('dell',700000);
+
+SELECT * FROM monitors;
+
+TRUNCATE TABLE monitors;
+
+SELECT * FROM monitors
+___________________________________________
+
+=>RENAME TABLE
+
+=Syntax
+ALTER TABLE oldtablename 
+RENAME TO newtablename;
+
+CREATE TABLE IF NOT EXISTS stocks(
+    item VARCHAR(100),
+    stock INT
+);
+
+DESC stocks;
+
+INSERT INTO stocks(item,stock)
+VALUES('desktop',20),
+('laptop',10),
+('projector',5);
+
+SELECT * FROM stocks;
+
+SHOW TABLES;
+
+ALTER TABLE stocks
+RENAME TO itaccessories;
+
+SHOW TABLES;
+
+SELECT * FROM itaccessories;

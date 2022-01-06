@@ -1,0 +1,70 @@
+=>DEFAULT VALUE
+
+CREATE TABLE mobiles(
+    brand VARCHAR(100) DEFAULT 'unnamed',
+    made VARCHAR(20) DEFAULT 'china'
+);
+
+DESC mobiles;
+
+INSERT INTO mobiles (brand,made)
+VALUE ('samsung','korea');
+
+SELECT * FROM mobiles;
+
+INSERT INTO mobiles (brand)
+VALUE ('mi');
+
+INSERT INTO mobiles (made)
+VALUE ('japan');
+
+INSERT INTO mobiels ()
+VALUE ();
+
+SELECT * FROM mobiles;
+
+____________________________________________
+=> NOT NULL and DEFAULT 
+
+CREATE TALBE vehicles(
+    brand VARCHAR(100) NOT NULL DEFAULT 'unnamed',
+    made VARCHAR(20) NOT NULL DEFAULT 'china'
+);
+
+SHOW TABLES;
+
+INSERT INTO vehicles (brand,made)
+VALUE ('toyota','japan');
+
+SELECT * FROM vehicles;
+
+INSERT INTO vehicles (brand)
+VALUE ('suzuki');
+
+INSERT INTO vehicles (made)
+VALUE ('us');
+
+INSERT INTO vehicles ()
+VALUE ();
+
+SELECT * FROM vehicles;
+
+*error
+INSERT INTO vehicles (brand,made)
+VALUE ('toyota',NULL);
+
+*error
+INSERT INTO vehicles (brand,made)
+VALUE (NULL,'indonesia');
+
+*error
+INSERT INTO vehicles (brand,made)
+VALUE (NULL,NULL);
+
+INSERT INTO vehicles (brand,made)
+VALUE ('NULL','NULL');
+
+SELECT * FROM vehicles;
+
+INSERT INTO vehicles (brand,made)
+VALUE ('toyota','NULL');

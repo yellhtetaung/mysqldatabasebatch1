@@ -1,0 +1,73 @@
+DATABASE LOGIN
+===============
+
+(Method 1)
+mysql -uWDF6523 -p
+datalandtechnology
+
+(Method 2)
+mysql -u WDF6523 -p
+datalandtechnology
+
+exit
+
+=>VERSION CHECK
+(Method 1 = in server)
+mysql -V
+
+(Method 2 = in mysql)
+help; (shortcut = \h)
+status; (shortcut = \s)
+
+____________________________________
+
+=>Arithmetic Operator (5types)
+
+Operator                  Meaning                               Operator On
++   (Add)                 Addition                              Numeric Value
+-   (Subtract)            Subtraction                           Numeric Value
+*   (Multiply)            Muliplication                         Numeric Value
+/   (Divide)              Division                              Numeric Value  
+%   (Moudulus)            Returns remainder of a division       Numeric Value
+
+Addition Operator = Syntax
+
+SELECT 10 + 2;
+SELECT "10" + 2;
+SELECT "10" + "2";
+SELECT 10+2,20 + 30;
+SELECT '100' + '200','300' + '400';
+
+Subtraction Operator = Syntax
+
+SELECT 10 - 2;
+SELECT 2--10, 30 - 15;
+SELECT '1000' - '500', '500' - '700';
+
+Multiplication Operator = Syntax
+
+SELECT 10 * 2;
+SELECT 5*3, 15 * 5;
+SELECT 20 * '3', '100' * 5;
+
+Division Operator and  DIV = Syntax
+
+SELECT 10 / 2;
+SELECT 2/3, 3 / 5;
+SELECT 100 / '25', '2000' / 2, 12 / 0;
+
+SELECT 20/3;
+SELECT 20 DIV 3; (ကိန်းပြည့်စားလဒ်ကိုပဲ ထုတ်ပေးတယ်။)
+SELECT 5 DIV 2, -40 DIV 3, -100 DIV -7;
+SELECT 5 DIV 2,20/5; (ကပ်ရေးလို့မရဘူး)
+SELECT 5 DIV 2,-20/5;
+
+Moduulus Operator = Syntax
+
+SELECT 10 % 3;
+SELECT 2%3, 3 % 5;
+SELECT 20 % '3', '100' % 5;
+SELECT 10 MOD 3;
+SELECT '2345'%23;
+SELECT 70%5, 10 % 3;
+SELECT 70 MOD 5, MOD(10,3); (အရှေ့က parameter ကတည်တဲ့ကောင်။ method က MOD ပဲသုံးလို့ရတယ်။)

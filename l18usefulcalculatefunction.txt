@@ -1,0 +1,140 @@
+=>USEFUL FUNCTIONS
+*MYSQL Aggregate Functions
+
+COUNT()
+SUM()
+AVG()
+MIN()
+MAX()
+
+=>COUNT() Syntax  
+NOTE:: Return the number fo rows in group, including rows with NULL values;
+SELECT COUNT(columnname)
+FROM tablename
+WHERE condition;
+
+=>SUM() Syntax
+NOTE:: Return the summation of all non-NULL values a set.
+SELECT SUM(columnname)
+FROM tablename
+WHERE condition;
+
+=>MIN() Syntax
+NOTE:: Return the lowest value in a set of non_NULL values.
+SELECT MIN(columnname)
+FROM tablename
+WHERE condition;
+
+=>MIN() Syntax
+NOTE:: Return the hightest value in a set of non_NULL values.
+SELECT MAX(columnname)
+FROM tablename
+WHERE condition;
+
+=>AVG() Syntax
+NOTE:: Return the average of non-NULL values.
+SELECT AVG(columnname)
+FROM tablename
+WHERE condition;
+____________________________________________________
+EXERISE = COUNT()
+SELECT COUNT(name) FROM employees;
+
+SELECT COUNT(city) FROM employees;
+
+SELECT COUNT(city) 
+FROM employees
+WHERE city = 'yangon';
+
+SELECT COUNT(employeeid)
+FROM employees
+WHERE salary > 500000;
+
+SELECT COUNT(age)
+FROM employees
+WHERE age > 30;
+
+____________________________________________________
+EXERISE = SUM()
+
+SELECT SUM(salary) FROM employees;
+
+SELECT SUM(salary) 
+FROM employees
+WHERE city = 'yangon';
+
+SELECT SUM(salary) 
+FROM employees
+WHERE city = 'mandalay';
+
+SELECT SUM(salary) 
+FROM employees
+WHERE city = 'bago';
+
+____________________________________________________
+EXERISE = MIN()
+
+SELECT * FROM employees;
+
+SELECT MIN(salary) FROM employees;
+
+SELECT MIN(age) FROM employees;
+
+SELECT MIN(salary)
+FROM employees
+WHERE age > 30;
+
+SELECT COUNT(*),MIN(salary)
+FROM employees
+WHERE age > 30;
+
+____________________________________________________
+EXERCIES = MAX()
+
+SELECT * FROM employees;
+
+SELECT MAX(salary) FROM employees;
+
+SELECT MAX(age) FROM employees;
+
+SELECT MAX(salary)
+FROM employees
+WHERE age > 30;
+
+SELECT COUNT(*),MAX(salary)
+FROM employees
+WHERE age > 30;
+
+SELECT COUNT(*),MAX(age)
+FROM employees
+WHERE age > 30;
+
+*error
+SELECT MAX(salary),name FROM employees;
+
+SELECT * FROM employees
+WHERE salary = 900000;
+
+SELECT name,salary,city FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
+
+SELECT * FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);
+
+____________________________________________________
+
+EXERCISE = AVG() total value / qty
+
+SELECT * FROM employees;
+
+SELECT AVG(salary) FROM employees;
+
+SELECT SUM(salary)
+FROM employees
+WHERE age > 30;
+
+SELECT AVG(salary)
+FROM employees
+WHERE age > 30;
+
+____________________________________________________

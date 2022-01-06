@@ -1,0 +1,63 @@
+=>CREATE TABLE
+
+*SERVER LOGIN
+*DATABASE SERVER LOGIN
+*CHOOSE DATABASE
+
+=>CHECK TABLE;
+SHOW TABLES;
+
+=>CREATE TABLE = Syntax
+CREATE TABLE table_names(
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    ............
+);
+
+0 to 255 (varchar မှာလက်ခံနိုင်တဲ့ စာလုံးရေ)
+
+CREATE TABLE persons(
+    personid int,
+    firstname varchar(255),    varchar(same as string)
+    lastname varchar(255),
+    city varchar(255),
+    address varchar(255)
+
+);
+
+SHOW TABLES;
+
+=>Table Info (Describe)
+Method 1
+DESC persons;
+
+Method 2
+SHOW COLUMNS FROM persons;
+
+________________________________
+
+=>Option
+
+CREATE TABLE countries(
+    countryid int,
+    countryname varachar(255),
+    capitalname varchar(255),
+    currency varchar(255)
+);
+
+NULL=>YES (Information ထည့်လည်းရတယ် မထည့်လည်းရတယ်)
+
+=>DELETE TABLE = Syntax
+DROP TABLE tablename;
+
+DROP TABLE countries;
+
+=>No Option
+
+CREATE TABLE countries(
+    countryid int NOT NULL,
+    countryname varchar(255) NOT NULL,
+    capitalname varchar(255),
+    currency varchar(255)
+);

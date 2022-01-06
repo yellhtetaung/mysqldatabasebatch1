@@ -1,0 +1,75 @@
+Database type
+==============
+1. sql ( the most use mysql )
+2. nonesql ( the most use mongodb )
+
+Software
+
+XAMPP
+WAMP
+Mysql
+
+http://dltmyanmar.com/(can't open https:)
+
+http://dltmyanmar.com/phpmyadmim/
+username: WDF6523
+password: datalandtechnology
+
+mysql version 8
+nginx versoin 1.18.0
+
+SERVER LOGIN
+=============
+
+username = ssh dlt@dltmyanmar.com
+password = datalandtechnology
+
+using Terminal
+==============
+
+username: ssh dlt@dltmyanmar.com
+password: datalandtechnology
+
+username: ssh wdf6523@dltmyanmar.com
+password: datalandtechnology
+
+using Putty
+============
+Hostname: dltmyanmar.com
+Hostname: 157.230.240.154
+
+username: wdf6523
+password: datalandtechnology
+
+DATABASE LOGIN
+===============
+
+(Method 1)
+mysql -uWDF6523 -p
+datalandtechnology
+
+(Method 2)
+mysql -u WDF6523 -p
+datalandtechnology
+
+exit
+
+=>VERSION CHECK
+(Method 1 = in server)
+mysql -V
+
+(Method 2 = in mysql)
+help; (shortcut = \h)
+status; (shortcut = \s)
+
+___________________________________________________
+
+=>Arithmetic Operator (5types)
+
+Operator                  Meaning                               Operator On
++   (Add)                 Addition                              Numeric Value
+-   (Subtract)            Subtraction                           Numeric Value
+*   (Multiply)            Muliplication                         Numeric Value
+/   (Divide)              Division                              Numeric Value  
+%   (Moudulus)            Returns remainder of a division       Numeric Value
+

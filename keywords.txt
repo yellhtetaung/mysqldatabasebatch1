@@ -1,0 +1,76 @@
+=>Create Database
+CREATE DATABASE databasename;
+
+=>Delete Database
+DROP DATABASE databasename;
+
+=>Choose Database
+USE databasename;
+
+=>Check Current Database
+SELECT DATABASE();
+
+=>Check Database
+SHOW DATABASES;
+
+=>Check Table
+SHOW TABLES;
+
+=>Create Table = Syntax
+CREATE TABLE tablename(
+    column1 datatype,
+    column2 datatype,
+    column3 datatype
+);
+
+=>Datatype
+int(1-255) default (255)
+varchar(1-255)
+
+=>Table Info = Syntax
+Method 1
+DESC tablename;
+
+Method 2
+SHOW COLUMNS FROM tablename;
+
+=>Delete Table = Syntax
+DROP TABLE tablename;
+
+=>No Option
+CREATE TABLE tablename(
+    column1 datatype NOT NULL,
+    column2 datatype NOT NULL,
+    ........
+)
+
+=>Insert Data To Table
+->Insert Single Data = Syntax
+Method 1
+INSERT INTO tablename(column1,column2,column3,....)
+VALUES (value1,value2,value3,....);
+
+Method 2
+INSERT INTO tablename
+VALUE (value1,value2,value3,......);
+
+->Insert Multi Data = Syntax
+Method 1
+INSERT INTO tablename(column1,column2,column3,...)
+VALUES (value1,value2,value3,...),
+        (value1,value2,value3,...),
+        (value1,value2,value3,...);
+
+Method 2
+INSERT INTO tablename
+VALUES (value1,value2,value3,...),
+        (value1,value2,value3,...),
+        (value1,value2,value3,...);
+
+=>Select Data
+Method 1
+SELECT * FROM tablename;
+
+Method 2
+SELECT column1,column2,column3
+FROM tablename;

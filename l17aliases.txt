@@ -1,0 +1,38 @@
+=>ALIASES (Easier to read results)
+Aliases Syntax
+
+SELECT columnname AS Aliasname
+FROM tablename;
+
+____________________________________________________
+
+EXERCISE
+
+SELECT * FROM employees;
+
+SELECT name AS fullname
+FROM employees;
+
+SELECT employeeid AS id
+FROM employees;
+
+SELECT employeeid AS id,name
+FROM employees;
+
+SELECT employeeid AS id,name,age,salary
+FROM employees;
+
+SELECT employeeid AS id,name AS fullname,age,salary
+FROM employees;
+
+SELECT employeeid AS id,name AS fullname,age,salary AS payamount
+FROM employees;
+
+SELECT employeeid AS id,name AS 'full name',age,salary AS payamount 
+FROM employees; စကားစုမတူရင် '' or "" ထဲထည့်ရေးရမယ်။
+
+SELECT 
+    employeeid AS id,
+    name AS fullname,
+    salary AS payamount
+FROM employees;

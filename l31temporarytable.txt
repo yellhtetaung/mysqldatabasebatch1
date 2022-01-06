@@ -1,0 +1,26 @@
+=>Temporary Table 
+=Syntax 
+CREATE TEMPORARY TABLE IF NOT EXISTS tablename(
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    .....
+);
+
+CREATE TEMPROARY TABLE IF NOT EXISTS workers(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(20),
+    age INT,
+    city VARCHAR(50),
+    PRIMARY KEY(id)
+);
+
+DESC workers;
+
+SHOW TABLES; // doesn't shown in table list
+
+INSERT INTO workers(name,age,city)
+VALUES('aung aung',20,'yangon'),
+('kyaw kyaw',30,'mandalay');
+
+SELECT * FROM workers;

@@ -1,0 +1,161 @@
+=>PRIMARY KEY Constraint (တစ်ခုခုကို unique ဖြစ်အောင်လုပ်တာ) PK
+
+PK unique identifier
+PK Constraint uniquely each record in table.
+PK value must unique, cannot contain NULL values.
+PK single or multiple columns (fields).
+
+
+
+--PRIMARY KEY = Syntax
+
+Method 1
+CREATE TABLE persons(
+    id INT NOT NULL,
+    firstname VARCHAR(255) NOT NULL'
+    lastname VARCHAR(255),
+    age INT,
+    PRIMARY KEY (id)
+); 
+
+Method 2
+CREATE TABLE persons(
+    id INT NOT NULL PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL'
+    lastname VARCHAR(255),
+    age INT
+ );
+
+_________________________________________________
+
+ CREATE TABLE computers(
+       brand VARCHAR(255),
+       made VARCHAR(255)
+ );
+    
+  INSERT INTO computers(brand,made)
+  VALUE ('asus','china');
+
+  INSERT INTO computers(brand,made)
+  VALUE ('asus','china');
+
+  SELECT * FROM computers;
+
+  DROP TABLE computers;
+
+  => CREATE TABLE with PK by brand
+  CREATE TABLE computers(
+       brand VARCHAR(255) NOL NULL,
+       made VARCHAR(255) ,
+       PRIMARY KEY (brand)
+  );
+
+  DESC computers;
+
+  INSERT INTO computers(brand,made)
+  VALUE ('asus','china');
+
+
+  INSERT INTO computers(brand,made)
+  VALUE ('hp','thai');
+
+
+   *error
+   INSERT INTO computers(brand,made)
+  VALUE ('asus','india');
+
+DROP TABLE computers;
+
+
+CREATE TABLE computers(
+    id INT NOT NULL PRIMARY KEY,
+    brand VARCHAR(255) ,
+    made VARCHAR(255)
+    );
+
+*error
+INSERT INTO computers(brand,made)
+VALUE('asus','china');
+
+DROP TABLE computers;
+
+_________________________________________________
+=>=>CREATE Table with PK by id using AUTO INCREMENT
+
+auto increment
+(တစ်ခုချင်းလိုက်ဖြည့်စရာမလိုပဲသူအလိုလိုဖြည့်ပေးတာ integer မှာပဲပေးလို့ရ)
+နောက်ဆုံး record ကိုပဲ ကြည့်ပြီးတော့ ၁ တိုးသွားတယ်။
+
+CREATE TABLE computers(
+id INT NOT NULL AUTO_INCREMENT ,
+brand VARCHAR(255) ,
+made VARCHAR(255),
+PRIMARY KEY (id)
+);
+
+DESC computers;
+
+INSERT INTO computers(brand,made)
+VALUE('asus','china');
+
+*error
+INSERT INTO computers(id,brand,made)
+VALUE(3,'hp','china');
+
+INSERT INTO computers(brand,made)
+VALUE(6,'hp','china');
+
+SELECT * FROM computers;
+
+INSERT INTO computers(brand,made)
+VALUE('dell','indo');
+
+SELECT * FROM computers;
+
+_____________________________________________
+
+DROP TABLE computers;
+
+CREATE TABLE computers(
+    id INT NOT NULL AUTO_INCREMENT,
+    brand VARCHAR(255),
+    made VARCHAR(255),
+    PRIMARY KEY(id)
+);
+
+DESC computers;
+
+INSERT INTO computers(brand,made)
+VALUE ('ausu','china');
+
+SELECT * FROM computers;
+
+*error
+INSER INTO computers(id,brand,made)
+VALUE (1,'asus','china');
+
+INSER INTO computers(id,brand,made)
+VALUE (2,'asus','china');
+
+INSERT INTO computers(brand,made)
+VALUE ('acer','china');
+
+INSERT INTO computers(brand,made)
+VALUE ('samsung','china');
+
+INSERT INTO computers(id,brand,made)
+VALUE (10,'hp','thai');
+
+INSERT INTO computers(brand,made) 
+VALUE ('hp','thai');
+
+INSERT INTO computers(id,brand,made) 
+VALUE (5,'dell','india');
+
+INSERT INTO computers(brand,made) 
+VALUE ('asus','china');
+
+INSERT INTO computers(brand,made) 
+VALUE ('asus','china');
+
+*mysql မှာဆိုရင် 1 နဲ့စတယ်။

@@ -1,0 +1,197 @@
+*Date Data Types(types)
+
+Data Types                      Description
+1.DATE                          A date. Format YYYY-MM-DD . supported 1000-01-01 to 9999-12-31
+fractional seconds support
+2.DATETIME(fsp)                 Date and time cimbination. Format YYYY-MM-DD hh:mm:ss. supported 1000-01-01 00:00:00 to 9999-12-31 23:59:59
+3.TIMESTAMP(fsp)                Automatic initialization. ('1970-01-01 00:00:00') YYYY-MM-DD hh:mm:ss
+4.TIME(fsp)                     A time. Format hh:mm:ss / hh:mm:ss:fff. supported range -838:59:59 to 828:59:59
+5.YEAR                          A year. Format YYYY . supported range 1901 
+
+________________________________________________________________
+Eg.gives current date(2021-12-18) 
+SELECT CURDATE();
+SELECT CURRENT_DATE();
+
+Eg.gives current time (09:54:49)
+SELECT CURTIME();
+SELECT CURRENT_TIME();
+
+Eg.get current datetime (2021-12-18 09:58:05)
+Method 1
+SELECT NOW();
+Method 2
+SELECT CURRENT_TIMESTAMP();
+
+Eg.get the last date of the this month by full date ( 2021-12-31)
+SELECT LAST_DAY(NOW());
+SELECT LAST_DAY(CURDATE())
+SELECT LAST_DAY(CURRENT_DATE());
+SELECT LAST_DAY(CURRENT_TIMESTAMP());
+
+Eg.get last day of this by day (31)
+SELECT DAY(LAST_DAY(NOW()));
+SELECT DAY(LAST_DAY(CURDATE()));
+SELECT DAY(LAST_DAY(CURRENT_DATE()));
+SELECT DAY(LAST_DAY(CURRENT_TIMESTAMP()));
+
+*result = 30
+SELECT DAY(LAST_DAY(NOW()) - 1);
+*result = 29
+SELECT DAY(LAST_DAY(NOW()) - 2);
+
+Eg. get the last date of the previous month by full date 
+*result = 2021-11-30
+SELECT LAST_DAY(NOW() - INTERVAL 1 MONTH);
+
+*result = 2021-10-31
+SELECT LAST_DAY(NOW() - INTERVAL 2 MONTH);
+
+*result = 2021-09-30
+SELECT LAST_DAY(NOW() - INTERVAL 3 MONTH);
+
+SELECT LAST_DAY(CURDATE() - INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_DATE() - INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_TIMESTAMP() - INTERVAL 1 MONTH);
+
+Eg. get the last date of the previous month by day
+*result = 30
+SELECT DAY(LAST_DAY(NOW() - INTERVAL 1 MONTH));
+
+Eg. get the last date of the next month by full date
+
+*result = 2022-01-31
+SELECT LAST_DAY(NOW() + INTERVAL 1 MONTH);
+SELECT LAST_DAY(NOW() + INTERVAL 2 MONTH);
+SELECT LAST_DAY(NOW()+INTERVAL 2 MONTH);
+
+SELECT LAST_DAY(CURDATE() + INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_DATE() + INTERVAL 1 MONTH);
+SELECT LAST_DAY(CURRENT_TIMESTAMP() + INTERVAL 1 MONTH);
+
+Eg. get the date of the next month by day
+
+*result = 31
+SELECT DAY(LAST_DAY(NOW()+INTERVAL 1 MONTH));
+
+Eg. get the first dte of the pervious month DATE_FORMAT(,);
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m-01');
+SELECT DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_DATE() - INTERVAL 1 MONTH, '%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_TIMESTAMP() - INTERVAL 1 MONTH, '%Y-%m-01');
+
+
+*result 2021-10-01
+SELECT DATE_FORMAT(NOW() - INTERVAL 2 MONTH,'%Y-%m-01');
+*result 21-10-01
+SELECT DATE_FORMAT(NOW() - INTERVAL 2 MONTH,'%y-%m-01');
+*result 21-October-01
+SELECT DATE_FORMAT(NOW() - INTERVAL 2 MONTH,'%y-%M-01');
+*result 2021-October-1
+SELECT DATE_FORMAT(NOW() - INTERVAL 2 MONTH,'%Y-%M-1');
+
+*Get the first date of the next month
+*result = 2020-01-01
+SELECT DATE_FORMAT(NOW() + INTERVAL 1 MONTH , '%Y-%m-01');
+SELECT DATE_FORMAT(CURDATE() + INTERVAL 1 MONTH , '%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_DATE() + INTERVAL 1 MONTH , '%Y-%m-01');
+SELECT DATE_FORMAT(CURRENT_TIMESTAMP() + INTERVAL 1 MONTH , '%Y-%m-01');
+
+*Get the same date of the previous month
+
+*result = 2021-11-18
+SELECT DATE_FORMAT(NOW() - INTERVAL 1 MONTH, '%Y-%m-%d');
+*result = 21-November-18th
+SELECT DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%y-%M-%D');
+
+*Get the same date of the next month
+
+*result = 18-01-22
+SELECT DATE_FORMAT(NOW() + INTERVAL 1 MONTH, '%d-%m-%y');
+*result = January-18th-2022
+SELECT DATE_FORMAT(CURDATE() + INTERVAL 1 MONTH, '%M-%D-%Y');
+
+*Get the first date of this month
+
+*result = 2021-12-01
+SELECT DATE_FORMAT(CURDATE(), '%Y-%m-01');
+
+*result = 2021-12-01
+                2021-12-31                    31              -1 DAY
+SELECT DATE_SUB(LAST_DAY(NOW()),INTERVAL DAY(LAST_DAY(NOW())) -1 DAY);
+SELECT SUBDATE(LAST_DAY(NOW()),INTERVAL DAY(LAST_DAY(NOW())) -1 DAY);
+
+*result = 2022-02-01
+                2021-12-31                      31            + 1 DAY
+SELECT DATE_ADD(LAST_DAY(NOW()),INTERVAL DAY(LAST_DAY(NOW())) + 1 DAY);
+SELECT ADDDATE(LAST_DAY(NOW()),INTERVAL DAY(LAST_DAY(NOW())) + 1 DAY);
+
+________________________________________________________________
+ 
+=>DATE Formating
+
+SELECT DATE_FORMAT(CURDATE(),'%Y-%M-01');
+SELECT DATE_FORMAT(CURDATE(),'%y-%m-01');
+SELECT DATE_FORMAT(CURDATE(),'%y/%m/01');
+*just oki for display
+SELECT DATE_FORMAT(CURDATE(),'%y %m 01');
+SELECT DATE_FORMAT(CURDATE(),'%y,%m,01');
+
+*result = 1
+                                    21-12-01
+SELECT DAY(DATE_FORMAT(CURDATE(),'%y-%m-01'));
+SELECT DAY(DATE_FORMAT(CURDATE(),'%y/%m/01'));
+
+*wrong = 21
+SELECT DAY(DATE_FORMAT(CURDATE(),'10-%m-%y'));
+
+*result = 1
+                                2021-12-01
+SELECT DAY(DATE_FORMAT(CURDATE(),'%Y-%m-01'));
+
+*result = NULL
+                                2021-December-01
+SELECT DAY(DATE_FORMAT(CURDATE(),'%Y/%M/01'));
+
+____________________________________________________________
+
+=>Exercise
+
+CREATE TABLE students(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    birthdate DATE,
+    birthtime TIME,
+    year YEAR,
+    city VARCHAR(100),
+    PRIMARY KEY(id)
+);
+
+DESC students;
+
+INSERT INTO students(name,birthdate,birthtime,year,city)
+VALUES("aung aung","2000-02-20","10:12:59","2000","mawlamyine"),
+("tar gyi","2002-03-15","11:12:59","2002","mawlamyine"),
+("kyaw kyaw","2002-04-10","12:12:59","2002","bago"),
+("zaw zaw","2003-04-05","12:11:59","2003","bago"),
+("su su","2005-06-05","18:23:59","2005","yangon"),
+("hla hla","2000-11-01","21:55:59","2000","yangon");
+
+SELECT * FROM students;
+
+SELECT name,birthdate,DAY(birthdate) FROM students;
+
+SELECT name,birthdate,DAYNAME(birthdate) FROM students;
+
+1=sun,2=mon,3=tue,4=wed,5=thur,6=fri,7=sat
+SELECT name,birthdate,DAYOFWEEK(birthdate) FROM students;
+
+SELECT name,birthdate,DAYOFYEAR(birthdate) FROM students;
+
+SELECT name,birthdate,YEAR(birthdate) FROM students;
+
+SELECT name,birthtime,HOUR(birthtime) FROM students;
+
+SELECT name,birthtime,MINUTE(birthtime) FROM students;
+
+SELECT name,birthtime,SECOND(birthtime) FROM students;

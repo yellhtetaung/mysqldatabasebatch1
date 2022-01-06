@@ -1,0 +1,26 @@
+=>DISTINCT STATEMENT(ကွဲပြားခြားနားချက်)
+DISTINCT Syntax
+
+SELECT DISTINCT column1,column2,...
+FROM tablename;
+
+____________________________________________________
+
+EXERCISE
+
+SELECT * FROM employees;
+
+SELECT DISTINCT city FROM employees;
+
+SELECT DISTINCT salary FROM employees;
+
+SELECT DISTINCT age FROM employees ORDER BY age ASC;
+
+SELECT DISTINCT age FROM employees ORDER BY age DESC;
+
+SELECT COUNT(city) FROM employees;
+
+SELECT COUNT(DISTINCT city) FROM employees;
+
+____________________________________________________
+
