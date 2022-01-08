@@ -24,3 +24,29 @@ VALUES('aung aung',20,'yangon'),
 ('kyaw kyaw',30,'mandalay');
 
 SELECT * FROM workers;
+
+USE wdf2001;
+SELECT * FROM workers;
+USE kotha007;
+SELECT * FROM workers; --(still have)
+
+\q
+
+USE kotha007;
+SELECT * FROM workers; --(gone)
+
+=== create table and then change table name
+
+ALTER TABLE workers
+RENAME TO employeeguys;
+
+SELECT * FROM workers; --(gone)
+SELECT * FROM employeeguys;
+
+=>Drop Temporary Table
+DROP TABLE employeeguys;
+DROP TABLE IF EXISTS employeeguys;
+DROP TEMPORARY TABLE employeeguys;
+DROP TEMPORARY TABLE IF EXISTS employeeguys;
+
+___________________________________________________

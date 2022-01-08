@@ -1,0 +1,40 @@
+=>CASE Statement
+
+=Syntax 
+SELECT col1,col2,col3,....,
+    CASE 
+        WHEN condition THEN ""
+        ELSE ""
+    END AS ...
+FROM tablename;
+
+SELECT name,age,salary,city,
+    CASE
+        WHEN age < 18 THEN "young"
+        ELSE "elder"
+    END AS "Age Cal"
+FROM employees;
+
+SELECT name,age,salary,city,
+    CASE
+        WHEN age < 18 THEN "young"
+        WHEN age < 30 THEN "elder"
+        ELSE "Retired"
+    END AS "Age Verify"
+FROM employees;
+
+SELECT name,age,salary,city,
+    CASE
+        WHEN age < 18 THEN "young"
+        WHEN age >= 35 THEN "manager"
+        ELSE "elder"
+    END AS "Age Verify"
+FROM employees;
+
+SELECT name,age,salary,city,
+    CASE
+        WHEN age < 18 THEN "young"
+        WHEN age >= 18 AND age <= 34 THEN "elder"
+        ELSE "manager"
+    END AS "Age Verify"
+FROM employees;

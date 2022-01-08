@@ -74,4 +74,116 @@ SELECT personid,firstname,city
 FROM persons
 WHERE firstname LIKE "Tin h";
 
+____________________________________________________________
 
+=> <> / !=
+
+SELECT * FROM persons;
+
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city <> 'mandalay';
+
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city != 'mandalay';
+
+SELECT personid,firstname,city 
+FROM perosns
+WHERE NOT city = 'mandalay';
+
+*error
+SELECT personid,firstname,city 
+FROM perosns
+WHERE NOT city 'mandalay';
+
+*error
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city NOT 'mandalay';
+
+*error
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city NOT= 'mandalay';
+
+*error
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city NOT = 'mandalay';
+
+*error
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city !LIKE 'mandalay';
+
+SELECT personid,firstname,city 
+FROM perosns
+WHERE NOT city LIKE 'mandalay';
+
+SELECT personid,firstname,city 
+FROM perosns
+WHERE city NOT LIKE 'man%';
+
+____________________________________________________________
+
+=>MODULE + - * / %
+
+SELECT * FROM employees;
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE age % 2 != 0; 
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE age % 2 NOT LIKE 0;
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE age + 1 = 18;
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE age - 1 < 18;
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE salary * 2 < 300000;
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE salary / 2 < 100000;
+
+____________________________________________________________
+
+=> BETWEEN with AND 
+
+SELECT * FROM employees;
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE salary BETWEEN 200000 AND 300000; (include 200000 and 300000)
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE salary BETWEEN 200000 AND 300000 AND city = 'chin';
+
+SELECT employeeid,name,age,salary,city FROM employees
+WHERE city = 'chin' AND salary BETWEEN 200000 AND 300000;
+
+=> NOT BETWEEN with AND
+
+SELECT employeeid,name,age,salary,city FROM employees 
+WHERE city = "chin" AND salary NOT BETWEEN 200000 AND 300000;
+
+____________________________________________________________
+
+=>IN 
+
+SELECT * FROM employees;
+
+SELECT employeeid,name,salary,city FROM employees 
+WHERE name = "aung aung";
+
+SELECT employeeid,name,salary,city FROM employees
+WHERE name = "aung aung" AND city = "mandalay";
+
+SELECT employeeid,name,salary,city FROM employees
+WHERE name = "aung aung" OR name = "tar gyi" OR name = "aye aung";
+
+*wrong
+SELECT employeeid,name,salary,city FROM employees
+WHERE name = "aung aung" AND name = "tar gyi" AND name = "aye aung";
