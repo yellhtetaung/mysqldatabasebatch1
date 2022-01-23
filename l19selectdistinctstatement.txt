@@ -1,12 +1,13 @@
-=>DISTINCT STATEMENT(ကွဲပြားခြားနားချက်)
+=>DISTINCT STATEMENT
+
 DISTINCT Syntax
 
-SELECT DISTINCT column1,column2,...
+SELECT DISTINCT column1,column2...
 FROM tablename;
 
-____________________________________________________
+_______________________________________________
 
-EXERCISE
+Exercise
 
 SELECT * FROM employees;
 
@@ -22,5 +23,157 @@ SELECT COUNT(city) FROM employees;
 
 SELECT COUNT(DISTINCT city) FROM employees;
 
-____________________________________________________
+SELECT DISTINCT city FROM employees ORDER BY age DESC;
+
+
+____________________________________
+
+=>GROUP BY clause
+
+Note : same value into summary (eg...city,country,age)
+		used with aggregate functions (COUNT(),MAX(),MIN(),AVG())
+		GROUP BY is placed after the WHERE clause.
+		GROUP BY condition column name must have an expression
+
+=>Syntax
+
+SELECT col1,col2,arrgrgate(col3),.....
+FROM tablename
+WHERE condition...
+GROUP BY col1,col2,.....col_n;
+
+
+______________________________________
+
+=>GROUP BY vs DISTINCT
+
+SELECT DISTINCT city FROM persons;
+
+SELECT city FROM persons GROUP BY city;
+
+SELECT DISTINCT address FROM persons;
+
+SELECT address FROM persons GROUP BY address;
+
+_________
+
+GROUP BY with COUNT()
+
+SELECT COUNT(*),city FROM persons GROUP BY city;
+
+SELECT COUNT(*),address FROM persons GROUP BY address;
+
+SELECT COUNT(*),firstname FROM persons GROUP BY firstname;
+
+SELECT COUNT(*),lastname FROM persons GROUP BY lastname;
+
+
+SELECT COUNT(*),city 
+FROM persons 
+GROUP BY city
+ORDER BY city DESC;
+
+
+SELECT address,city 
+FROM persons 
+GROUP BY address,city;
+
+SELECT COUNT(*),address,city 
+FROM persons 
+GROUP BY address,city;
+
+SELECT COUNT(*),address,city 
+FROM persons 
+GROUP BY address,city
+
+_______________________________
+
+GROUP BY clause with SUM()/MIN()/MAX()
+
+SELECT COUNT(*),salary FROM employees GROUP BY salary;
+
+SELECT city FROM employees
+GROUP BY city;
+
+SELECT city,SUM(salary) FROM employees
+GROUP BY city;
+
+
+SELECT city FROM employees 
+GROUP BY city;
+
+
+SELECT city,MIN(salary) FROM employees 
+GROUP BY city;
+
+SELECT city,MIN(salary),COUNT(*) FROM employees 
+GROUP BY city;
+
+
+SELECT city,MAX(salary) FROM employees 
+GROUP BY city;
+
+SELECT city,MAX(salary),COUNT(*) FROM employees 
+GROUP BY city;
+
+___________________________
+
+=>GROUP BY with CONCAT
+
+SELECT CONCAT('Employee in' , city) AS 'show location',MAX(salary) 
+FROM employees 
+GROUP BY city;
+
+___________________________
+
+=>GROUP BY with AVG()
+
+SELECT city,AVG(salary) 
+FROM employees 
+GROUP BY city;
+
+___________________________________________________
+
+=>HAVING Clause
+
+SELECT col1,col2,col3,...
+FROM tablename
+WHERE condition...
+GROUP BY col1,col2,col3....
+HAVING condition;
+
+_________
+
+=>EXERCISE
+
+SELECT * FROM employees;
+
+SELECT COUNT(*),city
+FROM employees
+WHERE city LIKE 'ma%'
+GROUP BY city;
+
+SELECT COUNT(*),city 
+FROM employees 
+GROUP BY city
+HAVING city LIKE "ma%";
+
+SELECT city,SUM(salary) AS 'Total Salary'
+FROM employees
+GROUP BY city;
+
+SELECT city,SUM(salary) AS 'Total Salary'
+FORM employees
+GROUP BY city
+HAVING SUM(salary) > 200000;
+
+
+
+
+
+
+
+
+
+
 
