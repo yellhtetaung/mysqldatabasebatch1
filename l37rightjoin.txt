@@ -1,0 +1,39 @@
+=>RIGHT JOIN
+=Syntax
+SELECT columns
+FROM table1
+RIGHT JOIN table2
+ON table1.column = table2.column;
+
+______________________________________________________
+
+=>LEFT JOIN 
+SELECT * FORM customers
+LEFT JOIN orders 
+ON customers.id = orders.customer_id;
+
+=>RIGHT JOIN 
+SELECT * FROM customers 
+RIGHT JOIN orders 
+ON customers.id = orders.customer_id;
+
+=>LEFT JOIN 
+SELECT * FORM orders
+LEFT JOIN customers 
+ON  orders.customer_id = customers.id;
+
+=>RIGHT JOIN 
+SELECT * FORM orders
+RIGHT JOIN customers 
+ON  orders.customer_id = customers.id;
+
+SELECT firstname,lastname,orderdate,amount 
+FROM customers 
+RIGHT JOIN orders 
+ON customers.id = orders.customer_id;
+
+SELECT firstname,lastname,orderdate,amount 
+FROM customers 
+RIGHT JOIN orders 
+ON customers.id = orders.customer_id 
+GROUP BY customers.id;
